@@ -11,7 +11,7 @@ if has("gui_running")
     colorscheme blackboard
 else
     colorscheme inkpot
-    hi CursorLine term=NONE ctermbg=235 guibg=#444444
+    hi CursorLine term=NONE cterm=NONE ctermbg=235 guibg=#444444
 endif
 
 " Line and column highlights
