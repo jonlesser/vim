@@ -9,6 +9,7 @@ set ai ts=4 sts=4 et sw=4
 set cursorline
 set colorcolumn=80
 set nowrap
+set mouse=a
 
 " python.vim syntax
 let python_highlight_all=1
