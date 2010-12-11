@@ -11,6 +11,7 @@ if has("gui_running")
     colorscheme blackboard
 else
     colorscheme inkpot
+endif
 
 " Line and column highlights
 set cursorline
@@ -73,4 +74,4 @@ set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%04.8b]\ [HEX=\%0
 map <D-]> >gv
 map <D-[> <gv
 
-command Rah NERDTree rah | cd ~/Documents/RepowerAtHome/www
+"command Rah NERDTree rah | cd ~/Documents/RepowerAtHome/www
