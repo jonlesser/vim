@@ -11,13 +11,13 @@ if has("gui_running")
     colorscheme blackboard
 else
     colorscheme inkpot
+    hi CursorLine term=NONE ctermbg=235 guibg=#444444
 endif
 
 " Line and column highlights
 set cursorline
-"hi CursorLine term=NONE ctermbg=235 guibg=#444444
 set colorcolumn=120
-hi ColorColumn term=NONE ctermbg=235 guibg=#444444
+hi ColorColumn term=NONE ctermbg=234 guibg=#1c1c1c
 
 " python.vim syntax
 let python_highlight_all=1
