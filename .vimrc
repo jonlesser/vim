@@ -1,15 +1,22 @@
-" Intuitive backspacing in insert mode
-"set backspace=indent,eol,start
+set backspace=indent,eol,start
 set guifont=DejaVu\ Sans\ Mono:h13
-colorscheme blackboard
 set nocompatible
 syntax on
 set number
 set ai ts=4 sts=4 et sw=4
-set cursorline
-set colorcolumn=80
 set nowrap
 set mouse=a
+
+if has("gui_running")
+    colorscheme blackboard
+else
+    colorscheme inkpot
+
+" Line and column highlights
+set cursorline
+"hi CursorLine term=NONE ctermbg=235 guibg=#444444
+set colorcolumn=120
+hi ColorColumn term=NONE ctermbg=235 guibg=#444444
 
 " python.vim syntax
 let python_highlight_all=1
@@ -66,4 +73,4 @@ set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%04.8b]\ [HEX=\%0
 map <D-]> >gv
 map <D-[> <gv
 
-"command Rah NERDTree rah | cd ~/Documents/RepowerAtHome/www
+command Rah NERDTree rah | cd ~/Documents/RepowerAtHome/www
