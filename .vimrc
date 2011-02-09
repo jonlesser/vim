@@ -23,7 +23,8 @@ hi ColorColumn term=NONE ctermbg=234 guibg=#1c1c1c
 let python_highlight_all=1
 
 " load the plugin and indent settings for the detected filetype
-filetype plugin indent on
+filetype plugin on
+filetype indent on
 
 " Disable scrollbars
 set guioptions-=r
@@ -34,6 +35,10 @@ set guioptions-=L
 set updatecount=0
 set nobackup
 set nowritebackup
+
+"Directories for swp files
+set backupdir=~/.vim/backup
+set directory=~/.vim/backup
 
 "NERDTree
 let NERDTreeIgnore=['\.pyc$']
@@ -47,23 +52,7 @@ set ignorecase
 set smartcase
 
 " Command-T configuration
-let g:CommandTMaxHeight=20
-
-"Directories for swp files
-set backupdir=~/.vim/backup
-set directory=~/.vim/backup
-
-" Surround additions for django templates
-" 'sb' for block
-" 'si' for an if statement
-" 'sw' for a with statement
-" 'sc' for a comment
-" sf' for a for statement
-let g:surround_{char2nr("b")} = "{% block\1 \r..*\r &\1%}\r{% endblock %}"
-let g:surround_{char2nr("i")} = "{% if\1 \r..*\r &\1%}\r{% endif %}"
-let g:surround_{char2nr("w")} = "{% with\1 \r..*\r &\1%}\r{% endwith %}"
-let g:surround_{char2nr("c")} = "{% comment\1 \r..*\r &\1%}\r{% endcomment %}"
-let g:surround_{char2nr("f")} = "{% for\1 \r..*\r &\1%}\r{% endfor %}"
+let g:CommandTMaxHeight=10
 
 " Always show status line
 set laststatus=2
@@ -74,4 +63,23 @@ set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%04.8b]\ [HEX=\%0
 map <D-]> >gv
 map <D-[> <gv
 
-"command Rah NERDTree rah | cd ~/Documents/RepowerAtHome/www
+if has("gui_macvim")
+  let macvim_hig_shift_movement = 1
+endif
+
+" Shortcut call to setup rah editing env
+function! RepowerSetup()
+    cd ~/Documents/RepowerAtHome/www
+    NERDTree rah
+endfunction
+command RAH call RepowerSetup()
+
+" Rebind of ZoomWin. <c-w>o doesn't seem to work right
+map <Leader>z :ZoomWin<CR>
+
+" use ctrl-h/j/k/l to switch between splits
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+map <c-h> <c-w>h
+
