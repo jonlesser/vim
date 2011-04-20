@@ -1,3 +1,4 @@
 .netrwhist
 .VimballRecord
 *.swp
+.DS_Store

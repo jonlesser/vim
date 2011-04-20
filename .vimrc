@@ -1,8 +1,8 @@
 set backspace=indent,eol,start
-set guifont=DejaVu\ Sans\ Mono:h13
+set guifont=DejaVu\ Sans\ Mono:h12
 set nocompatible
 syntax on
-set number
+"set number
 set ai ts=4 sts=4 et sw=4
 set nowrap
 set mouse=a
@@ -25,6 +25,30 @@ let python_highlight_all=1
 " load the plugin and indent settings for the detected filetype
 filetype plugin on
 filetype indent on
+
+" Auto complete
+set ofu=syntaxcomplete#Complete
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+"inoremap <C-space> <C-x><C-o> 
+
+function! SuperCleverTab()
+    if strpart(getline('.'), 0, col('.') - 1) =~ '^\s*$'
+        return "\"
+    else
+        if &omnifunc != ''
+            return "\\"
+        elseif &dictionary != ''
+            return "\"
+        else
+            return "\"
+        endif
+    endif
+endfunction 
+inoremap <Tab> <C-R>=SuperCleverTab()<cr>
+
 
 " Disable scrollbars
 set guioptions-=r
