@@ -26,7 +26,9 @@ set autoindent nocindent nosmartindent
 
 " Pretty colors
 syntax on
-colorscheme inkpot
+if filereadable("~/.vim/bundle/inkpot/colors/inkpot.vim")
+  colorscheme inkpot
+endif
 set cursorline
 set colorcolumn=80
 hi CursorLine term=NONE cterm=NONE ctermbg=235 guibg=#444444
