@@ -26,7 +26,7 @@ set autoindent nocindent nosmartindent
 
 " Pretty colors
 syntax on
-if filereadable("~/.vim/bundle/inkpot/colors/inkpot.vim")
+if filereadable(expand("~/.vim/bundle/inkpot/colors/inkpot.vim"))
   colorscheme inkpot
 endif
 set cursorline
